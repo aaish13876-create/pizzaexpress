@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-950 text-ink-100 font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-ember-500 text-ink-950;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+  }
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-ember-400;
+  }
+  .reveal {
+    opacity: 0;
+  }
+  .reveal.is-visible {
+    animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0a09;
+}
+::-webkit-scrollbar-thumb {
+  background: #3d352e;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #564d44;
+}
+
+/* Hide platform-injected "Made in Bolt" badge */
+a[href*="bolt.new"],
+div[class*="bolt-badge"],
+[id*="bolt-badge"],
+.bolt-badge {
+  display: none !important;
+}
